@@ -117,7 +117,7 @@ export const GridBackground: React.FC = () => {
       {/* =========================================================================
           LAYER 1: DEEP NAVY BASE (Subtle deep teal undertone)
           ========================================================================= */}
-      <div className="absolute inset-0 bg-[#f8fafc] dark:bg-[#070e17] transition-colors duration-500" />
+      <div className="absolute inset-0 bg-[#f8fafc] dark:bg-[#070e17]" />
       <div className="absolute inset-0 bg-gradient-to-b from-teal-950/10 via-transparent to-cyan-950/10 dark:from-[#03141f]/60 dark:via-transparent dark:to-[#04121d]/60" />
 
       {/* =========================================================================

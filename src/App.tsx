@@ -20,8 +20,7 @@ export default function App() {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('theme');
       if (saved) return saved === 'dark';
-      // Default to dark mode like 5cqn.onrender.com
-      return true;
+      return document.documentElement.classList.contains('dark');
     }
     return true;
   });
@@ -32,9 +31,13 @@ export default function App() {
     const root = document.documentElement;
     if (darkMode) {
       root.classList.add('dark');
+      root.style.backgroundColor = '#070e17';
+      root.style.colorScheme = 'dark';
       localStorage.setItem('theme', 'dark');
     } else {
       root.classList.remove('dark');
+      root.style.backgroundColor = '#f8fafc';
+      root.style.colorScheme = 'light';
       localStorage.setItem('theme', 'light');
     }
   }, [darkMode]);
@@ -44,7 +47,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] dark:bg-[#070e17] text-slate-900 dark:text-slate-100 font-sans selection:bg-cyan-500 selection:text-slate-950 relative transition-colors duration-300">
+    <div className="min-h-screen bg-[#f8fafc] dark:bg-[#070e17] text-slate-900 dark:text-slate-100 font-sans selection:bg-cyan-500 selection:text-slate-950 relative">
       {/* Block-Block Cyber Grid with Ambient Light Glow */}
       <GridBackground />
 
