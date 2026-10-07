@@ -4,25 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#070e17" />
+    <meta name="color-scheme" content="dark" />
     <title>Putta Vaishnavi - Software Engineer Portfolio</title>
     <meta name="description" content="Portfolio of Putta Vaishnavi, Full-Stack Software Engineer & AI Systems Developer based in Paris, France (EPITA Bac+5). Projects in AI, Spring Boot, React, and enterprise systems." />
     <meta property="og:title" content="Putta Vaishnavi - Software Engineer Portfolio" />
     <meta property="og:description" content="Portfolio of Putta Vaishnavi, Full-Stack Software Engineer & AI Systems Developer based in Paris, France (EPITA Bac+5). Projects in AI, Spring Boot, React, and enterprise systems." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <!-- Prevent White Flash (FOUC) on load / refresh -->
+    <!-- Critical Anti-Flash & Anti-Jumping Early Script & Styles -->
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      html.dark, html.dark body, html.dark #root {
+        background-color: #070e17;
+        color: #f1f5f9;
+      }
+      html:not(.dark), html:not(.dark) body, html:not(.dark) #root {
+        background-color: #f8fafc;
+        color: #0f172a;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+        overscroll-behavior-y: none;
+      }
+      #root {
+        min-height: 100vh;
+      }
+    </style>
     <script>
       (function() {
         try {
           var saved = localStorage.getItem('theme');
-          if (saved === 'light') {
-            document.documentElement.classList.remove('dark');
-            document.documentElement.style.backgroundColor = '#f8fafc';
-            document.documentElement.style.colorScheme = 'light';
+          var isDark = saved ? saved === 'dark' : true; // Default dark mode
+          var docEl = document.documentElement;
+          if (isDark) {
+            docEl.classList.add('dark');
+            docEl.style.backgroundColor = '#070e17';
+            docEl.style.colorScheme = 'dark';
           } else {
-            document.documentElement.classList.add('dark');
-            document.documentElement.style.backgroundColor = '#070e17';
-            document.documentElement.style.colorScheme = 'dark';
+            docEl.classList.remove('dark');
+            docEl.style.backgroundColor = '#f8fafc';
+            docEl.style.colorScheme = 'light';
           }
         } catch (e) {
           document.documentElement.classList.add('dark');
@@ -34,7 +58,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   </head>
-  <body class="antialiased bg-[#070e17] text-slate-100 selection:bg-cyan-500 selection:text-slate-950" style="background-color: #070e17; margin: 0;">
+  <body class="antialiased bg-[#f8fafc] dark:bg-[#070e17] text-slate-900 dark:text-slate-100 selection:bg-cyan-500 selection:text-slate-950" style="margin: 0; overscroll-behavior-y: none;">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

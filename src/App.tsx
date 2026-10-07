@@ -29,15 +29,18 @@ export default function App() {
 
   useEffect(() => {
     const root = document.documentElement;
+    const body = document.body;
     if (darkMode) {
       root.classList.add('dark');
       root.style.backgroundColor = '#070e17';
       root.style.colorScheme = 'dark';
+      body.style.backgroundColor = '#070e17';
       localStorage.setItem('theme', 'dark');
     } else {
       root.classList.remove('dark');
       root.style.backgroundColor = '#f8fafc';
       root.style.colorScheme = 'light';
+      body.style.backgroundColor = '#f8fafc';
       localStorage.setItem('theme', 'light');
     }
   }, [darkMode]);
@@ -47,7 +50,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] dark:bg-[#070e17] text-slate-900 dark:text-slate-100 font-sans selection:bg-cyan-500 selection:text-slate-950 relative">
+    <div className={`min-h-screen ${darkMode ? 'bg-[#070e17] text-slate-100' : 'bg-[#f8fafc] text-slate-900'} font-sans selection:bg-cyan-500 selection:text-slate-950 relative`}>
       {/* Block-Block Cyber Grid with Ambient Light Glow */}
       <GridBackground />
 
@@ -59,20 +62,20 @@ export default function App() {
       />
 
       <main className="relative z-10">
-        {/* Hero Section */}
+        {/* Hero / About Section */}
         <Hero onOpenResume={() => setIsResumeOpen(true)} />
 
-        {/* Education Section */}
-        <EducationSection />
+        {/* Featured Projects */}
+        <ProjectsGrid />
 
         {/* Professional Industry Experience */}
         <ExperienceSection />
 
-        {/* Featured Projects with Fixed Segment & Truncation */}
-        <ProjectsGrid />
-
-        {/* Technical Competencies */}
+        {/* Technical Competencies / Skills */}
         <CompetenciesSection />
+
+        {/* Academic Education Section */}
+        <EducationSection />
 
         {/* Contact Section */}
         <ContactSection />

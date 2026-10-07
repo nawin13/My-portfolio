@@ -115,16 +115,16 @@ export const GridBackground: React.FC = () => {
   return (
     <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden" aria-hidden="true">
       {/* =========================================================================
-          LAYER 1: DEEP NAVY BASE (Subtle deep teal undertone)
+          LAYER 1: BASE BACKGROUND (Clean slate-50 in light mode / deep navy in dark mode)
           ========================================================================= */}
       <div className="absolute inset-0 bg-[#f8fafc] dark:bg-[#070e17]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-teal-950/10 via-transparent to-cyan-950/10 dark:from-[#03141f]/60 dark:via-transparent dark:to-[#04121d]/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-200/30 via-transparent to-slate-200/40 dark:from-[#03141f]/60 dark:via-transparent dark:to-[#04121d]/60" />
 
       {/* =========================================================================
           LAYER 2: VIBRANT INTERACTIVE MOVEABLE CYBER BLUEPRINT GRID
           - Matches exact visual language from user screenshot
           - Prominent, gorgeous cyan/teal blocks (64px desktop / 52px mobile)
-          - Clear, visible opacity (0.12 light / 0.22 dark)
+          - Clear, visible opacity (0.14 light / 0.22 dark)
           - Interactive parallax shifting with mouse & touch drag
           - Continuous 26s background drift animation across the canvas
           ========================================================================= */}
@@ -136,11 +136,11 @@ export const GridBackground: React.FC = () => {
       >
         {/* Desktop Grid (64px x 64px crisp architectural blocks) */}
         <div
-          className="hidden sm:block absolute inset-0 opacity-[0.12] dark:opacity-[0.22] animate-grid-drift transition-opacity duration-300"
+          className="hidden sm:block absolute inset-0 opacity-[0.14] dark:opacity-[0.22] animate-grid-drift"
           style={{
             backgroundImage: `
-              linear-gradient(to right, rgba(45, 212, 191, 0.45) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(45, 212, 191, 0.45) 1px, transparent 1px)
+              linear-gradient(to right, rgba(13, 148, 136, 0.35) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(13, 148, 136, 0.35) 1px, transparent 1px)
             `,
             backgroundSize: '64px 64px',
           }}
@@ -148,11 +148,11 @@ export const GridBackground: React.FC = () => {
 
         {/* Mobile Grid (52px x 52px blocks matching mobile screenshot) */}
         <div
-          className="sm:hidden absolute inset-0 opacity-[0.14] dark:opacity-[0.24] animate-grid-drift transition-opacity duration-300"
+          className="sm:hidden absolute inset-0 opacity-[0.16] dark:opacity-[0.24] animate-grid-drift"
           style={{
             backgroundImage: `
-              linear-gradient(to right, rgba(45, 212, 191, 0.48) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(45, 212, 191, 0.48) 1px, transparent 1px)
+              linear-gradient(to right, rgba(13, 148, 136, 0.38) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(13, 148, 136, 0.38) 1px, transparent 1px)
             `,
             backgroundSize: '52px 52px',
           }}
@@ -175,22 +175,22 @@ export const GridBackground: React.FC = () => {
       {/* =========================================================================
           LAYER 3: VERTICAL ARCHITECTURAL LIGHT COLUMNS (Ultra-soft, restrained)
           ========================================================================= */}
-      <div className="absolute top-0 left-[20%] w-[200px] sm:w-[280px] h-[150vh] bg-gradient-to-b from-cyan-400/10 via-teal-500/5 to-transparent blur-[140px] rounded-full pointer-events-none transform -translate-x-1/2 motion-safe:animate-[pulse_16s_ease-in-out_infinite]" />
-      <div className="absolute top-0 left-[50%] w-[240px] sm:w-[340px] h-[160vh] bg-gradient-to-b from-teal-400/10 via-cyan-400/5 to-transparent blur-[150px] rounded-full pointer-events-none transform -translate-x-1/2 motion-safe:animate-[pulse_20s_ease-in-out_infinite] delay-1000" />
-      <div className="absolute top-0 left-[80%] w-[180px] sm:w-[260px] h-[140vh] bg-gradient-to-b from-sky-400/8 via-teal-500/5 to-transparent blur-[140px] rounded-full pointer-events-none transform -translate-x-1/2 motion-safe:animate-[pulse_18s_ease-in-out_infinite] delay-3000" />
+      <div className="absolute top-0 left-[20%] w-[200px] sm:w-[280px] h-[150vh] bg-gradient-to-b from-cyan-400/10 via-teal-500/5 to-transparent blur-[140px] rounded-full pointer-events-none transform -translate-x-1/2 motion-safe:animate-[pulse_16s_ease-in-out_infinite] opacity-40 dark:opacity-100" />
+      <div className="absolute top-0 left-[50%] w-[240px] sm:w-[340px] h-[160vh] bg-gradient-to-b from-teal-400/10 via-cyan-400/5 to-transparent blur-[150px] rounded-full pointer-events-none transform -translate-x-1/2 motion-safe:animate-[pulse_20s_ease-in-out_infinite] delay-1000 opacity-40 dark:opacity-100" />
+      <div className="absolute top-0 left-[80%] w-[180px] sm:w-[260px] h-[140vh] bg-gradient-to-b from-sky-400/8 via-teal-500/5 to-transparent blur-[140px] rounded-full pointer-events-none transform -translate-x-1/2 motion-safe:animate-[pulse_18s_ease-in-out_infinite] delay-3000 opacity-40 dark:opacity-100" />
 
       {/* =========================================================================
           LAYER 4: ATMOSPHERIC RADIAL GLOW BEHIND SECTIONS
           ========================================================================= */}
-      <div className="absolute top-[4%] left-1/2 -translate-x-1/2 w-[750px] h-[500px] bg-gradient-to-b from-teal-400/12 via-cyan-500/6 to-transparent blur-[140px] rounded-full pointer-events-none" />
-      <div className="absolute top-[38%] left-1/2 -translate-x-1/2 w-[800px] h-[550px] bg-gradient-to-b from-cyan-500/8 via-teal-500/4 to-transparent blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-[4%] left-1/2 -translate-x-1/2 w-[650px] h-[400px] bg-gradient-to-b from-teal-500/9 via-sky-500/5 to-transparent blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute top-[4%] left-1/2 -translate-x-1/2 w-[750px] h-[500px] bg-gradient-to-b from-teal-400/12 via-cyan-500/6 to-transparent blur-[140px] rounded-full pointer-events-none opacity-40 dark:opacity-100" />
+      <div className="absolute top-[38%] left-1/2 -translate-x-1/2 w-[800px] h-[550px] bg-gradient-to-b from-cyan-500/8 via-teal-500/4 to-transparent blur-[150px] rounded-full pointer-events-none opacity-40 dark:opacity-100" />
+      <div className="absolute bottom-[4%] left-1/2 -translate-x-1/2 w-[650px] h-[400px] bg-gradient-to-b from-teal-500/9 via-sky-500/5 to-transparent blur-[140px] rounded-full pointer-events-none opacity-40 dark:opacity-100" />
 
       {/* =========================================================================
-          LAYER 5: SUBTLE VIGNETTE (Gentle perimeter vignette protecting readability)
+          LAYER 5: SUBTLE VIGNETTE (Gentle perimeter vignette protecting readability in dark mode)
           ========================================================================= */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none opacity-0 dark:opacity-100"
         style={{
           background: 'radial-gradient(ellipse at 50% 35%, transparent 65%, rgba(4, 9, 15, 0.6) 100%)',
         }}

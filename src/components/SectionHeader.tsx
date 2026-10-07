@@ -23,14 +23,14 @@ const containerVariants: Variants = {
 const itemVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 16,
+    y: 0,
   },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.45,
-      ease: [0.22, 1, 0.36, 1], // polished cubic-bezier easeOut
+      duration: 0.35,
+      ease: 'easeOut',
     },
   },
 };

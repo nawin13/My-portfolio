@@ -19,7 +19,7 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-14 md:py-18 border-t border-slate-200 dark:border-[#142d3d]">
+    <section id="contact" className="py-14 md:py-18 border-t border-slate-200 dark:border-[#142d3d] scroll-mt-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 space-y-6">
         <SectionHeader
           eyebrow="Get In Touch"

@@ -24,7 +24,7 @@ export const ProjectsGrid: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="py-16 md:py-20 border-t border-slate-200 dark:border-[#142d3d]">
+    <section id="projects" className="py-16 md:py-20 border-t border-slate-200 dark:border-[#142d3d] scroll-mt-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 space-y-6">
         {/* Section Header with Staggered Entrance */}
         <SectionHeader
